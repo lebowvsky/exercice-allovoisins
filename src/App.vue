@@ -1,16 +1,23 @@
 <script setup lang="ts">
 import ArticleListComponent from "@/components/ArticleListComponent.vue";
-import CardLayout from "@/components/layouts/CardLayout.vue";
 import ArticleFormComponent from "./components/ArticleFormComponent.vue";
+import { Article } from "./definitions/article";
+import { ref } from "vue";
+
+const chosenArticle = ref<Article | undefined>(undefined);
+
+const getArticle = (article: Article): void => {
+  chosenArticle.value = article;
+};
 </script>
 
 <template>
   <main class="main">
     <article class="main__content">
-      <ArticleListComponent />
+      <ArticleListComponent @chose-article="($event) => getArticle($event)" />
     </article>
     <aside class="main__aside">
-      <ArticleFormComponent />
+      <ArticleFormComponent :article="chosenArticle" />
     </aside>
   </main>
 </template>

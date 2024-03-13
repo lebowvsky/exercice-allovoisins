@@ -1,8 +1,22 @@
 <script lang="ts" setup>
-import { computed, ref } from "vue";
+import { computed, ref, watch } from "vue";
 import CardLayout from "./layouts/CardLayout.vue";
 import AppButton from "./ui/AppButton.vue";
 import AppInputText from "./ui/AppInputText.vue";
+import { Article } from "@/definitions/article";
+
+const props = defineProps<{ article?: Article }>();
+
+watch(
+  () => props.article,
+  () => {
+    if (props.article) {
+      articleName.value = props.article.name;
+      articleHTPrice.value = props.article.price;
+      articleTax.value = props.article.tax;
+    }
+  }
+);
 
 const articleName = ref<string>();
 const articleHTPrice = ref<number>();

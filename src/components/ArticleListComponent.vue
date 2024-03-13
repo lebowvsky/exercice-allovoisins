@@ -7,13 +7,24 @@ import { Article } from "@/definitions/article";
 
 const allArticle = ref<Article[]>();
 onMounted(() => (allArticle.value = articles));
+
+const emits = defineEmits<{ (e: "chose-article", value: Article): void }>();
+
+const choseArticle = (article: Article) => {
+  emits("chose-article", article);
+};
 </script>
 
 <template>
   <CardLayout title="Mes articles">
     <template v-slot:content>
       <div class="list">
-        <AppArticle v-for="article in allArticle" :key="article.id" :article="article" />
+        <AppArticle
+          v-for="article in allArticle"
+          :key="article.id"
+          :article="article"
+          @click="choseArticle(article)"
+        />
       </div>
     </template>
   </CardLayout>
