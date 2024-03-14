@@ -14,6 +14,12 @@ To run the app, you just have to type in the the terminal :
 
 The app will run locally [here](http://localhost:5173) on the port _5173_.
 
+## Run the app
+
+You can see the online demo by clicking on the link below :
+
+[https://test-allovoisins.lebowvsky.dev/](https://test-allovoisins.lebowvsky.dev/)
+
 ## How the App works
 
 The interface is split in two parts :
