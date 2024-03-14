@@ -3,6 +3,7 @@
 [![Static Badge](https://img.shields.io/badge/Vue%203-4FC08D?style=for-the-badge&logo=vuedotjs&logoColor=white)](https://vuejs.org/)&nbsp;
 [![forthebadge made-with-vue](https://img.shields.io/badge/TypeScript-007ACC?style=for-the-badge&logo=typescript&logoColor=white)](https://www.typescriptlang.org/)&nbsp;
 [![Static Badge](https://img.shields.io/badge/Vite-646CFF?style=for-the-badge&logo=vite&logoColor=white)](https://vitejs.dev/)&nbsp;
+[![Static Badge](https://img.shields.io/badge/Pinia-ffd859?style=for-the-badge&logoColor=white)](https://pinia.vuejs.org/)&nbsp;
 [![forthebadge made-with-vue](https://img.shields.io/badge/Sass-CC6699?style=for-the-badge&logo=sass&logoColor=white)](https://sass-lang.com/)
 
 ## Run the app
@@ -12,6 +13,12 @@ To run the app, you just have to type in the the terminal :
 `npm run dev`
 
 The app will run locally [here](http://localhost:5173) on the port _5173_.
+
+## Run the app
+
+You can see the online demo by clicking on the link below :
+
+[https://test-allovoisins.lebowvsky.dev/](https://test-allovoisins.lebowvsky.dev/)
 
 ## How the App works
 
