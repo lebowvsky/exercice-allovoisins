@@ -1,6 +1,23 @@
-# Vue 3 + TypeScript + Vite
+# Exercice AlloVoisins : Vue 3 + TypeScript + Vite
 
-This template should help get you started developing with Vue 3 and TypeScript in Vite. The template uses Vue 3 `<script setup>` SFCs, check out the [script setup docs](https://v3.vuejs.org/api/sfc-script-setup.html#sfc-script-setup) to learn more.
+[![forthebadge made-with-vue](https://img.shields.io/badge/TypeScript-007ACC?style=for-the-badge&logo=typescript&logoColor=white)](https://vuejs.org/)
+
+## Run the app
+
+To run the app, you just have to type in the the terminal :
+`npm run dev`
+The app will run [here](http://localhost:5173)
+
+## How the App works
+
+The interface is split in two parts :
+
+- A list of articles
+- A form to edit or add article
+
+When the form is empty you can add a new article by filling all the inputs and click on the submit button.
+To edit an article, click on it in the list on the right side, it will fill all the inputs by the articles'data. Now you can change the name, the price and the tax. Click on the submit button to edit the article.
+If you clicked on an article and decide nevertheless to add a new article, click a second time on the item to empty the inputs. Now you can fill them to add a new article.
 
 ## Recommended IDE Setup
 
