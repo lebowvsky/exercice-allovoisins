@@ -8,7 +8,7 @@ import { useUpdateArticleList } from "@/composables/article";
 
 const props = defineProps<{ article?: Article | undefined }>();
 
-const { articleName, articleHTPrice, articleTax, articleTTCPrice, isFormOk, submitArticle } =
+const { articleName, articleHTPrice, articleTax, articleTTCPrice, isFormOk, addAnArticle, updateArticle } =
   useUpdateArticleList();
 
 watch(
@@ -25,13 +25,21 @@ watch(
     }
   }
 );
+
+const submitArticleForm = () => {
+  if (props.article) {
+    updateArticle(props.article.id);
+  } else {
+    addAnArticle();
+  }
+};
 </script>
 
 <template>
   <CardLayout title="Ajouter un article">
     <template v-slot:content>
       <aside class="aside">
-        <form @submit.prevent="submitArticle">
+        <form @submit.prevent="submitArticleForm">
           <AppInputText v-model="articleName" name="name" placeholder="Nom de l'article" />
           <AppInputText
             v-model="articleHTPrice"

@@ -4,3 +4,9 @@ export interface Article {
   price: number;
   tax: number;
 }
+
+export interface CreateArticleDTO {
+  name: string;
+  price: number;
+  tax: number;
+}

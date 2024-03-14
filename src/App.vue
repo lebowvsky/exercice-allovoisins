@@ -2,10 +2,11 @@
 import ArticleListComponent from "@/components/ArticleListComponent.vue";
 import ArticleFormComponent from "./components/ArticleFormComponent.vue";
 import { Article } from "./definitions/article";
-import { ref } from "vue";
-import { usePopulateLocalStorageWithArticles } from "./composables/article";
+import { onMounted, ref } from "vue";
+import { useArticlesStore } from "./stores/articles";
 
-usePopulateLocalStorageWithArticles();
+const articleStore = useArticlesStore();
+onMounted(() => articleStore.initArticles());
 
 const chosenArticle = ref<Article | undefined>(undefined);
 
