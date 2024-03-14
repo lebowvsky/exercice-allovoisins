@@ -30,7 +30,6 @@ defineProps<{ title: string }>();
   }
 
   &__title {
-    // margin: 0 0 $spacing-l 0;
     font-size: $font-size-h2;
     font-weight: $font-weight-h2;
   }
