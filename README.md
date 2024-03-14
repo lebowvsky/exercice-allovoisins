@@ -2,6 +2,8 @@
 
 [![forthebadge made-with-vue](https://img.shields.io/badge/TypeScript-007ACC?style=for-the-badge&logo=typescript&logoColor=white)](https://vuejs.org/)
 
+[![forthebadge made-with-vue](https://img.shields.io/badge/Sass-CC6699?style=for-the-badge&logo=sass&logoColor=white)](https://vuejs.org/)
+
 ## Run the app
 
 To run the app, you just have to type in the the terminal :
