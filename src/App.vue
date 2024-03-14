@@ -3,6 +3,9 @@ import ArticleListComponent from "@/components/ArticleListComponent.vue";
 import ArticleFormComponent from "./components/ArticleFormComponent.vue";
 import { Article } from "./definitions/article";
 import { ref } from "vue";
+import { usePopulateLocalStorageWithArticles } from "./composables/article";
+
+usePopulateLocalStorageWithArticles();
 
 const chosenArticle = ref<Article | undefined>(undefined);
 

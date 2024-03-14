@@ -1,14 +1,13 @@
 <script lang="ts" setup>
 import CardLayout from "@/components/layouts/CardLayout.vue";
-import articles from "@/data/article.json";
-import { onMounted, ref, watch } from "vue";
+import { ref, watch } from "vue";
 import AppArticle from "./ui/AppArticle.vue";
 import { Article } from "@/definitions/article";
+import { useGetArticles } from "@/composables/article";
 
 const props = defineProps<{ chosenArticle: Article | undefined }>();
 
-const allArticle = ref<Article[]>();
-onMounted(() => (allArticle.value = articles));
+const { allArticles } = useGetArticles();
 
 const emits = defineEmits<{ (e: "chose-article", value: Article): void }>();
 
@@ -35,7 +34,7 @@ const choseArticle = (article: Article) => {
     <template v-slot:content>
       <div class="list">
         <AppArticle
-          v-for="article in allArticle"
+          v-for="article in allArticles"
           :key="article.id"
           :article="article"
           :isActive="chosenArticleId === article.id"

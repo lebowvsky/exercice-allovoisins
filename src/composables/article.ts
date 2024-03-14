@@ -1,4 +1,24 @@
-import { computed, ref } from "vue";
+import { computed, onMounted, ref } from "vue";
+import articlesFromJson from "@/data/article.json";
+import { Article } from "@/definitions/article";
+
+export const usePopulateLocalStorageWithArticles = () => {
+  onMounted(() => {
+    const articles = localStorage.getItem("articles");
+    console.log(articles);
+    if (!articles) localStorage.setItem("articles", JSON.stringify(articlesFromJson));
+  });
+};
+
+export const useGetArticles = () => {
+  const allArticles = ref<Article[]>([]);
+  onMounted(() => {
+    const articles = localStorage.getItem("articles");
+    if (articles) allArticles.value = JSON.parse(articles);
+  });
+
+  return { allArticles };
+};
 
 export const useUpdateArticleList = () => {
   const articleName = ref<string | null>("");
