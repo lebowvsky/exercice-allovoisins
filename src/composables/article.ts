@@ -18,6 +18,12 @@ export const useUpdateArticleList = () => {
     articleName.value && articleHTPrice.value && articleTax.value ? false : true
   );
 
+  const resetArticleForm = () => {
+    articleName.value = "";
+    articleHTPrice.value = null;
+    articleTax.value = null;
+  };
+
   const addAnArticle = () => {
     if (articleName.value && articleHTPrice.value && articleTax.value) {
       articleStore.addAnArticle({
@@ -39,5 +45,14 @@ export const useUpdateArticleList = () => {
     }
   };
 
-  return { articleName, articleHTPrice, articleTax, articleTTCPrice, isFormOk, addAnArticle, updateArticle };
+  return {
+    articleName,
+    articleHTPrice,
+    articleTax,
+    articleTTCPrice,
+    isFormOk,
+    addAnArticle,
+    updateArticle,
+    resetArticleForm,
+  };
 };
