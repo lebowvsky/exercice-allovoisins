@@ -1,26 +1,16 @@
 import { computed, onMounted, ref } from "vue";
 import articlesFromJson from "@/data/article.json";
-import { Article } from "@/definitions/article";
+import { useArticlesStore } from "@/stores/articles";
 
 export const usePopulateLocalStorageWithArticles = () => {
   onMounted(() => {
     const articles = localStorage.getItem("articles");
-    console.log(articles);
     if (!articles) localStorage.setItem("articles", JSON.stringify(articlesFromJson));
   });
 };
 
-export const useGetArticles = () => {
-  const allArticles = ref<Article[]>([]);
-  onMounted(() => {
-    const articles = localStorage.getItem("articles");
-    if (articles) allArticles.value = JSON.parse(articles);
-  });
-
-  return { allArticles };
-};
-
 export const useUpdateArticleList = () => {
+  const articleStore = useArticlesStore();
   const articleName = ref<string | null>("");
   const articleHTPrice = ref<number | null>(null);
   const articleTax = ref<number | null>(null);
@@ -36,9 +26,26 @@ export const useUpdateArticleList = () => {
     articleName.value && articleHTPrice.value && articleTax.value ? false : true
   );
 
-  const submitArticle = () => {
-    console.log("submited !!!");
+  const addAnArticle = () => {
+    if (articleName.value && articleHTPrice.value && articleTax.value) {
+      articleStore.addAnArticle({
+        name: articleName.value,
+        price: articleHTPrice.value,
+        tax: articleTax.value,
+      });
+    }
   };
 
-  return { articleName, articleHTPrice, articleTax, articleTTCPrice, isFormOk, submitArticle };
+  const updateArticle = (articleId: string | number) => {
+    if (articleName.value && articleHTPrice.value && articleTax.value) {
+      articleStore.updateArticle({
+        id: articleId,
+        name: articleName.value,
+        price: articleHTPrice.value,
+        tax: articleTax.value,
+      });
+    }
+  };
+
+  return { articleName, articleHTPrice, articleTax, articleTTCPrice, isFormOk, addAnArticle, updateArticle };
 };
