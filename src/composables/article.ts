@@ -1,5 +1,6 @@
 import { computed, ref } from "vue";
 import { useArticlesStore } from "@/stores/articles";
+import { convertLocalFloatIntoNumber } from "@/utils/numbers";
 
 export const useUpdateArticleList = () => {
   const articleStore = useArticlesStore();
@@ -9,7 +10,12 @@ export const useUpdateArticleList = () => {
 
   const articleTTCPrice = computed<number>(() => {
     if (articleHTPrice.value && articleTax.value) {
-      return +articleHTPrice.value + (+articleHTPrice.value * +articleTax.value) / 100;
+      // Calculate TTC price with input's coma replacement
+      return +(
+        convertLocalFloatIntoNumber(articleHTPrice.value) +
+        (convertLocalFloatIntoNumber(articleHTPrice.value) * convertLocalFloatIntoNumber(articleTax.value)) /
+          100
+      ).toFixed(2);
     }
     return 0;
   });
