@@ -6,6 +6,7 @@ import AppInputText from "./ui/AppInputText.vue";
 import { Article } from "@/definitions/article";
 import { useUpdateArticleList } from "@/composables/article";
 import { useAsideStatesStore } from "@/stores/aside";
+import { convertFloatIntoLocal } from "@/utils/numbers";
 
 const props = defineProps<{ article?: Article | undefined }>();
 
@@ -73,7 +74,7 @@ const submitArticleForm = () => {
           <AppInputText v-model="articleTax" name="tax" label="TVA en %" placeholder="20,00" unity="%" />
           <div class="aside__resume">
             <p>Prix total TTC</p>
-            <p>{{ articleTTCPrice }}€</p>
+            <p>{{ convertFloatIntoLocal(articleTTCPrice) }}€</p>
           </div>
           <div class="aside__buttons">
             <AppButton text="Enregistrer l'article" :isDisabled="isFormOk" />

@@ -29,6 +29,8 @@ The interface is split in two parts :
 
 When the form is empty you can add a new article by filling all the inputs and click on the submit button.
 
+(You can fill the HT and tax with coma or dot. Inputs accepts both e.g. "125,5" or "125.5")
+
 To edit an article, click on it in the list on the right side, it will fill all the inputs by the articles'data. Now you can change the name, the price and the tax. Click on the submit button to edit the article.
 
 If you clicked on an article and decide nevertheless to add a new article, click a second time on the item to empty the inputs. Now you can fill them to add a new article.
