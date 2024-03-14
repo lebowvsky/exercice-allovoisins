@@ -7,11 +7,11 @@
 
 ## Run the app
 
-To run the app, you just have to type in the the terminal
+To run the app, you just have to type in the the terminal :
 
 `npm run dev`
 
-The app will run [here](http://localhost:5173)
+The app will run locally [here](http://localhost:5173) on the port _5173_.
 
 ## How the App works
 
