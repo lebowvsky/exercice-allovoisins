@@ -24,7 +24,6 @@ const getArticle = (article: Article): void => {
       <ArticleFormComponent :article="chosenArticle" />
     </aside>
   </main>
-  <p>{{ chosenArticle?.name }}</p>
 </template>
 
 <style lang="scss">
