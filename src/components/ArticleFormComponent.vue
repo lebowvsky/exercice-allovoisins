@@ -5,7 +5,7 @@ import AppButton from "./ui/AppButton.vue";
 import AppInputText from "./ui/AppInputText.vue";
 import { Article } from "@/definitions/article";
 
-const props = defineProps<{ article?: Article }>();
+const props = defineProps<{ article?: Article | undefined }>();
 
 watch(
   () => props.article,
@@ -14,13 +14,17 @@ watch(
       articleName.value = props.article.name;
       articleHTPrice.value = props.article.price;
       articleTax.value = props.article.tax;
+    } else {
+      articleName.value = null;
+      articleHTPrice.value = null;
+      articleTax.value = null;
     }
   }
 );
 
-const articleName = ref<string>();
-const articleHTPrice = ref<number>();
-const articleTax = ref<number>();
+const articleName = ref<string | null>(null);
+const articleHTPrice = ref<number | null>(null);
+const articleTax = ref<number | null>(null);
 
 const articleTTCPrice = computed<number>(() => {
   if (articleHTPrice.value && articleTax.value) {

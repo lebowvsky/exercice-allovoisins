@@ -7,7 +7,11 @@ import { ref } from "vue";
 const chosenArticle = ref<Article | undefined>(undefined);
 
 const getArticle = (article: Article): void => {
-  chosenArticle.value = article;
+  if (chosenArticle.value?.id === article.id) {
+    chosenArticle.value = undefined;
+  } else {
+    chosenArticle.value = article;
+  }
 };
 </script>
 
@@ -20,6 +24,7 @@ const getArticle = (article: Article): void => {
       <ArticleFormComponent :article="chosenArticle" />
     </aside>
   </main>
+  <p>{{ chosenArticle?.name }}</p>
 </template>
 
 <style lang="scss">
