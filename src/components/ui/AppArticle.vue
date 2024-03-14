@@ -1,11 +1,11 @@
 <script lang="ts" setup>
 import { Article } from "@/definitions/article";
 
-defineProps<{ article: Article }>();
+withDefaults(defineProps<{ article: Article; isActive: boolean }>(), { isActive: false });
 </script>
 
 <template>
-  <div class="item">
+  <div class="item" :class="{ active: isActive }">
     <p class="item__title">{{ article.name }}</p>
     <v-icon name="ri-arrow-right-s-line" />
   </div>
@@ -23,6 +23,10 @@ defineProps<{ article: Article }>();
 
   &:hover {
     background-color: $card-background-hover;
+  }
+
+  &.active {
+    background-color: $card-background-active;
   }
 
   &__title {

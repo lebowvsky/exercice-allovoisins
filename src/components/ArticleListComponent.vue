@@ -1,16 +1,31 @@
 <script lang="ts" setup>
 import CardLayout from "@/components/layouts/CardLayout.vue";
 import articles from "@/data/article.json";
-import { onMounted, ref } from "vue";
+import { onMounted, ref, watch } from "vue";
 import AppArticle from "./ui/AppArticle.vue";
 import { Article } from "@/definitions/article";
+
+const props = defineProps<{ chosenArticle: Article | undefined }>();
 
 const allArticle = ref<Article[]>();
 onMounted(() => (allArticle.value = articles));
 
 const emits = defineEmits<{ (e: "chose-article", value: Article): void }>();
 
+const chosenArticleId = ref<string | number | null>();
+watch(
+  () => props.chosenArticle,
+  () => {
+    if (props.chosenArticle) {
+      chosenArticleId.value = props.chosenArticle.id;
+    } else {
+      chosenArticleId.value = null;
+    }
+  }
+);
+
 const choseArticle = (article: Article) => {
+  chosenArticleId.value = article.id;
   emits("chose-article", article);
 };
 </script>
@@ -23,6 +38,7 @@ const choseArticle = (article: Article) => {
           v-for="article in allArticle"
           :key="article.id"
           :article="article"
+          :isActive="chosenArticleId === article.id"
           @click="choseArticle(article)"
         />
       </div>

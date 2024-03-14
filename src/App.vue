@@ -18,7 +18,7 @@ const getArticle = (article: Article): void => {
 <template>
   <main class="main">
     <article class="main__content">
-      <ArticleListComponent @chose-article="($event) => getArticle($event)" />
+      <ArticleListComponent @chose-article="($event) => getArticle($event)" :chosenArticle="chosenArticle" />
     </article>
     <aside class="main__aside">
       <ArticleFormComponent :article="chosenArticle" />
