@@ -15,14 +15,14 @@ watch(
       articleHTPrice.value = props.article.price;
       articleTax.value = props.article.tax;
     } else {
-      articleName.value = null;
+      articleName.value = "";
       articleHTPrice.value = null;
       articleTax.value = null;
     }
   }
 );
 
-const articleName = ref<string | null>(null);
+const articleName = ref<string | null>("");
 const articleHTPrice = ref<number | null>(null);
 const articleTax = ref<number | null>(null);
 
