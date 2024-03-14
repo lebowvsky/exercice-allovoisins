@@ -1,13 +1,5 @@
-import { computed, onMounted, ref } from "vue";
-import articlesFromJson from "@/data/article.json";
+import { computed, ref } from "vue";
 import { useArticlesStore } from "@/stores/articles";
-
-export const usePopulateLocalStorageWithArticles = () => {
-  onMounted(() => {
-    const articles = localStorage.getItem("articles");
-    if (!articles) localStorage.setItem("articles", JSON.stringify(articlesFromJson));
-  });
-};
 
 export const useUpdateArticleList = () => {
   const articleStore = useArticlesStore();
