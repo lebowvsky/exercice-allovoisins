@@ -1,1 +1,1 @@
-export { RiArrowRightSLine } from "oh-vue-icons/icons/ri/index.js";
+export { RiArrowRightSLine, RiCloseLine } from "oh-vue-icons/icons/ri/index.js";

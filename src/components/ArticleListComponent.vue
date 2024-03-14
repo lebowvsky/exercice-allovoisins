@@ -4,11 +4,13 @@ import { ref, watch } from "vue";
 import AppArticle from "./ui/AppArticle.vue";
 import { Article } from "@/definitions/article";
 import { useArticlesStore } from "@/stores/articles";
+import AppButton from "./ui/AppButton.vue";
+import { useAsideStatesStore } from "@/stores/aside";
 
 const props = defineProps<{ chosenArticle: Article | undefined }>();
 
-// const { allArticles } = useGetArticles();
 const articleStore = useArticlesStore();
+const asideStatesStore = useAsideStatesStore();
 
 const emits = defineEmits<{ (e: "chose-article", value: Article): void }>();
 
@@ -32,6 +34,11 @@ const choseArticle = (article: Article) => {
 
 <template>
   <CardLayout title="Mes articles">
+    <template v-slot:button>
+      <div class="button">
+        <AppButton text="+" type="button" @click="asideStatesStore.activeAside()" />
+      </div>
+    </template>
     <template v-slot:content>
       <div class="list">
         <AppArticle
@@ -52,5 +59,13 @@ const choseArticle = (article: Article) => {
   flex-direction: column;
   gap: $spacing-xs;
   background-color: $main-background;
+}
+
+.button {
+  display: none;
+
+  @include bpf($max: $l) {
+    display: block;
+  }
 }
 </style>

@@ -4,7 +4,10 @@ defineProps<{ title: string }>();
 
 <template>
   <section class="article">
-    <h2 class="article__title">{{ title }}</h2>
+    <div class="article__header">
+      <h2 class="article__title">{{ title }}</h2>
+      <slot name="button"></slot>
+    </div>
     <slot name="content"></slot>
   </section>
 </template>
@@ -16,9 +19,18 @@ defineProps<{ title: string }>();
   border-radius: 5px;
   overflow: hidden;
 
+  &__header {
+    padding: $spacing-l;
+
+    @include bpf($max: $l) {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+  }
+
   &__title {
     // margin: 0 0 $spacing-l 0;
-    padding: $spacing-l;
     font-size: $font-size-h2;
     font-weight: $font-weight-h2;
   }
