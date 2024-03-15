@@ -20,6 +20,18 @@ You can see the online demo by clicking on the link below :
 
 [https://test-allovoisins.lebowvsky.dev/](https://test-allovoisins.lebowvsky.dev/)
 
+## Run Cypress
+
+install dependencies by
+
+`npm run dev`
+
+To run Cypress type
+
+`npm run cypress:open`
+
+choose E2E testing to run test.
+
 ## How the App works
 
 The interface is split in two parts :
