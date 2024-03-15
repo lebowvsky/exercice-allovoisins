@@ -21,6 +21,7 @@ defineEmits<{ (e: "update:modelValue", payload: string): void }>();
         :placeholder="placeholder"
         :value="modelValue"
         :id="name"
+        :name="name"
         @input="$emit('update:modelValue', ($event.target as HTMLInputElement).value)"
       />
       <span v-if="unity">{{ unity }}</span>
