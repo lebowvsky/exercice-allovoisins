@@ -24,6 +24,10 @@ You can see the online demo by clicking on the link below :
 
 install dependencies by
 
+`npm install`
+
+run the app
+
 `npm run dev`
 
 To run Cypress type
